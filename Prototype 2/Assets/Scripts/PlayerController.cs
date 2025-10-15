@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
@@ -16,6 +14,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] float moveForce = 5f;  // horizontal movement force
     [SerializeField] float jumpForce = 5f;  // vertical jump force
+
+    private bool facingRight = true;        // to track facing direction
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -26,22 +27,43 @@ public class PlayerController : MonoBehaviour
     void OnMove(InputValue movementValue)
     {
         moveX = movementValue.Get<float>() * moveForce;
+
+        // Flip player when pressing A or D
+        if (moveX > 0 && !facingRight)
+        {
+            Flip();
+        }
+        else if (moveX < 0 && facingRight)
+        {
+            Flip();
+        }
     }
-    void OnJump(InputValue jumpValue) {
-        //Debug.DrawRay(rb.position - bottomY, distToJump * Vector2.down, Color.red, 1000, true);   // uncomment to visualize jump raycast
+
+    void OnJump(InputValue jumpValue)
+    {
         if (IsGrounded())
         {
             moveY = jumpValue.Get<float>() * jumpForce;
-            rb.AddForce(new Vector2(0, moveY), ForceMode2D.Impulse);    // jump handling
+            rb.AddForce(new Vector2(0, moveY), ForceMode2D.Impulse);
         }
     }
+
     private void FixedUpdate()
     {
-        rb.AddForce(new Vector2(moveX,0));  // movement handling
+        rb.AddForce(new Vector2(moveX, 0));  // movement handling
     }
 
     bool IsGrounded()
     {
         return Physics2D.Raycast(rb.position - bottomY, Vector2.down, distToJump);
     }
+
+    void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;       // reverse X scale to flip
+        transform.localScale = scale;
+    }
 }
+
