@@ -412,8 +412,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ddd0392e2ae664189f033824c4aefe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distToJump: 0.1
+  distToJumpPad: 0.9
   moveForce: 6
   jumpForce: 5
+  jumpPadForce: 7
   body: {fileID: 821702833}
   mushroom: {fileID: 1667317680}
 --- !u!114 &821702836
