@@ -18,7 +18,7 @@ public class PlayerAim : MonoBehaviour
         aimAngle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg;
 
         mushroomPos = transform.position + aimDir.normalized * orbitDistance;
-        mushroomSprite.transform.SetPositionAndRotation(mushroomPos, Quaternion.Euler(0, 0, aimAngle));
+        mushroomSprite.transform.SetPositionAndRotation(mushroomPos, Quaternion.Euler(0, 0, aimAngle+90));
         CheckFlip(mousePos);
     }
 
@@ -42,13 +42,21 @@ public class PlayerAim : MonoBehaviour
         flippedScale.x *= -1;
         transform.localScale = flippedScale;
 
-        FlipMushroom();
+        Vector3 weaponScale = mushroomSprite.transform.localScale;
+        weaponScale.x *= -1;
+        mushroomSprite.transform.localScale = weaponScale;
     }
 
     public void FlipMushroom()
     {
         Vector3 weaponScale = mushroomSprite.transform.localScale;
-        weaponScale.x *= -1;
+        weaponScale.y *= -1;
         mushroomSprite.transform.localScale = weaponScale;
+    }
+
+    public void Animate(string name)
+    {
+        Animator animator = mushroomSprite.GetComponent<Animator>();
+        animator.SetTrigger("shoot");
     }
 }

@@ -25,6 +25,7 @@ public class SporeShooter : MonoBehaviour
         if (hit.collider != null)
         {
             ApplyKnockback(hit,dir);
+            playerAimScript.Animate("shoot");
         }
     }
 

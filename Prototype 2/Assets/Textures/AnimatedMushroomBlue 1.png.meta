@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b92d081e9e258854596a61287b65fc00
+guid: 64aee5b3a52e7ef4291f09596282eae8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,70 +97,70 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AnimatedMushroomBlue_0
+      name: AnimatedMushroomBlue 1_0
       rect:
         serializedVersion: 2
         x: 28
-        y: 280
+        y: 268
         width: 72
         height: 76
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 349e431647f17d44f80258f8e164d316
-      internalID: -1360659962
+      spriteID: 5520c53c17f4c78469af889f31299913
+      internalID: 98762797
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimatedMushroomBlue_1
+      name: AnimatedMushroomBlue 1_1
       rect:
         serializedVersion: 2
         x: 156
-        y: 280
+        y: 272
         width: 72
         height: 76
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff84b729dd390504ea45c9fdf67e74d9
-      internalID: -2114275209
+      spriteID: b7a28d2a489b1b34cbac5713ab353416
+      internalID: -1096776739
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimatedMushroomBlue_2
+      name: AnimatedMushroomBlue 1_2
       rect:
         serializedVersion: 2
         x: 284
-        y: 280
+        y: 276
         width: 72
         height: 76
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44a98ffaa6a81f747bad59efaf721b8e
-      internalID: 859942663
+      spriteID: 1645e0978352cba45b1e3217681304ea
+      internalID: 1943041938
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimatedMushroomBlue_3
+      name: AnimatedMushroomBlue 1_3
       rect:
         serializedVersion: 2
         x: 28
@@ -168,20 +168,20 @@ TextureImporter:
         width: 72
         height: 76
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ec32764598a4464494c1ccb3a54f0b4
-      internalID: -937735422
+      spriteID: b447636da4682ef4989fd8d219469785
+      internalID: -436078791
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimatedMushroomBlue_4
+      name: AnimatedMushroomBlue 1_4
       rect:
         serializedVersion: 2
         x: 156
@@ -189,77 +189,77 @@ TextureImporter:
         width: 72
         height: 76
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5cfac4ecff3448d479efd76486a1de54
-      internalID: 660479957
+      spriteID: 74fc1be148d1a26438b12732366b4c45
+      internalID: 816602035
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimatedMushroomBlue_5
+      name: AnimatedMushroomBlue 1_5
       rect:
         serializedVersion: 2
         x: 284
-        y: 152
+        y: 148
         width: 72
         height: 76
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 936adbf0127c2b041b0ac56f0fddc5f4
-      internalID: 579555953
+      spriteID: debb0964b0daa5e40b014ba5ef4b051a
+      internalID: -1095674404
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimatedMushroomBlue_6
+      name: AnimatedMushroomBlue 1_6
       rect:
         serializedVersion: 2
         x: 28
-        y: 24
+        y: 16
         width: 72
         height: 76
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e6f0beadf719384191f30321986e22a
-      internalID: 1715175653
+      spriteID: 97b9f4ffb871757418304a684d9fef5a
+      internalID: -791126593
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimatedMushroomBlue_7
+      name: AnimatedMushroomBlue 1_7
       rect:
         serializedVersion: 2
         x: 156
-        y: 24
+        y: 12
         width: 72
         height: 76
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1deda5276ec8d7141bca3badb55d22c5
-      internalID: 59120237
+      spriteID: a7b80ea6841a8db4fa8a425d18a07a3c
+      internalID: -261028872
       vertices: []
       indices: 
       edges: []
@@ -275,14 +275,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      AnimatedMushroomBlue_0: -1360659962
-      AnimatedMushroomBlue_1: -2114275209
-      AnimatedMushroomBlue_2: 859942663
-      AnimatedMushroomBlue_3: -937735422
-      AnimatedMushroomBlue_4: 660479957
-      AnimatedMushroomBlue_5: 579555953
-      AnimatedMushroomBlue_6: 1715175653
-      AnimatedMushroomBlue_7: 59120237
+      AnimatedMushroomBlue 1_0: 98762797
+      AnimatedMushroomBlue 1_1: -1096776739
+      AnimatedMushroomBlue 1_2: 1943041938
+      AnimatedMushroomBlue 1_3: -436078791
+      AnimatedMushroomBlue 1_4: 816602035
+      AnimatedMushroomBlue 1_5: -1095674404
+      AnimatedMushroomBlue 1_6: -791126593
+      AnimatedMushroomBlue 1_7: -261028872
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
