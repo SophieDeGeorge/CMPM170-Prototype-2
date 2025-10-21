@@ -1,19 +1,49 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class PlayerAim2D : MonoBehaviour
+public class PlayerAim : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer MushroomSprite; // assign Mushroom's SpriteRenderer
+    [SerializeField] private SpriteRenderer mushroomSprite; // assign Mushroom's SpriteRenderer
+    [SerializeField] private float orbitDistance = 1.0f;
+    private float aimAngle = 0;
+    private Vector3 aimDir = Vector3.zero;
+    private Vector3 mushroomPos = Vector3.zero;
+    private bool flipped = false;
 
-    void Update()
+    void OnAim(InputValue input)
     {
-        Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 dir = mouse - transform.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(input.Get<Vector2>());
+        mousePos.z = 0f;
+        aimDir = mousePos - transform.position;
+        aimAngle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg;
 
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+        mushroomPos = transform.position + aimDir.normalized * orbitDistance;
+        mushroomSprite.transform.SetPositionAndRotation(mushroomPos, Quaternion.Euler(0, 0, aimAngle));
+        CheckFlip(mousePos);
+    }
 
-        // Keep sprite looking correct when aiming left
-        bool pointingLeft = angle > 90f || angle < -90f;
-        if (MushroomSprite) MushroomSprite.flipY = pointingLeft;
+    public Vector2 AimDir => aimDir;
+    public Vector3 MushroomPos => mushroomPos;
+
+    void CheckFlip(Vector3 mousePos)
+    {
+        if (mousePos.x < transform.position.x != flipped)
+        {
+            Flip();
+        }
+            
+    }
+
+    void Flip()
+    {
+        flipped = !flipped;
+
+        Vector3 flippedScale = transform.localScale;
+        flippedScale.x *= -1;
+        transform.localScale = flippedScale;
+
+        Vector3 weaponScale = mushroomSprite.transform.localScale;
+        weaponScale.x *= -1;
+        mushroomSprite.transform.localScale = weaponScale;
     }
 }
