@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour
                 if (mushroomMeter == null || mushroomMeter.TryConsume(actionCost))
                 {
                     sporeShooterScript.SporeShoot();
+                    mushroomMeter.ConsumeMP(actionCost);
                 }
                 else
                 {
@@ -68,7 +69,7 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("jump");
                 if (mushroomMeter == null || mushroomMeter.TryConsume(actionCost))
                 {
-                    jumpPadScript.UseJumpPad();
+                    if (jumpPadScript.UseJumpPad()) mushroomMeter.ConsumeMP(actionCost);
                 }
                 {
                     Debug.Log("not enough mp to use jump pad");

@@ -34,16 +34,17 @@ public class MushroomMeter : MonoBehaviour
 
     public bool TryConsume(float amount)
     {
-        if (amount <= 0f) return true;
-        if (CurrentMP >= amount)
-        {
-            CurrentMP -= amount;
-            regenBlockedUntil = Time.time + regenDelaySeconds;
-            UpdateUI();
-            return true;
-        }
+        if (amount <= 0f || CurrentMP >= amount) return true;
+
         // not enough MP
         return false;
+    }
+
+    public void ConsumeMP(float amount)
+    {
+        CurrentMP -= amount;
+        regenBlockedUntil = Time.time + regenDelaySeconds;
+        UpdateUI();
     }
 
     public bool CanAfford(float amount) => CurrentMP >= amount;

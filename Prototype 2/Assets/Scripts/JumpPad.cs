@@ -20,7 +20,7 @@ public class JumpPad : MonoBehaviour
         controller = GetComponent<PlayerController>();
         playerAimScript = GetComponent<PlayerAim>();
     }
-    public void UseJumpPad()
+    public bool UseJumpPad()
     {
         aimDir = playerAimScript.AimDir.normalized;
         mushroomPos = playerAimScript.MushroomPos;
@@ -29,7 +29,9 @@ public class JumpPad : MonoBehaviour
         {
             rb.velocity = new(0, 0);
             rb.AddForce(jumpPadForce * -aimDir, ForceMode2D.Impulse);
+            return true;
         }
+        return false;
     }
     bool CanUseJumpPad()
     {
