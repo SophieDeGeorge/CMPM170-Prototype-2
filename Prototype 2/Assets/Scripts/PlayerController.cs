@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float moveForce = 5f;      // horizontal movement force
     [SerializeField] float jumpForce = 5f;      // vertical jump force
 
+    [SerializeField] private MushroomMeter mushroomMeter;
+    [SerializeField] private float actionCost = 20f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -52,11 +55,24 @@ public class PlayerController : MonoBehaviour
         switch (action) {
             case "shoot":
                 Debug.Log("shoot");
-                sporeShooterScript.SporeShoot();
-                break;
+                if (mushroomMeter == null || mushroomMeter.TryConsume(actionCost))
+                {
+                    sporeShooterScript.SporeShoot();
+                }
+                else
+                {
+                    Debug.Log("not enough mp to shoot");
+                }
+                 break;
             case "jump":
                 Debug.Log("jump");
-                jumpPadScript.UseJumpPad();
+                if (mushroomMeter == null || mushroomMeter.TryConsume(actionCost))
+                {
+                    jumpPadScript.UseJumpPad();
+                }
+                {
+                    Debug.Log("not enough mp to use jump pad");
+                }
                 break;
             default:
                 Debug.Log("unknown action");
