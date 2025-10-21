@@ -11,6 +11,9 @@ public class JumpPad : MonoBehaviour
     private PlayerController controller;
     private PlayerAim playerAimScript;
 
+    private Vector2 aimDir = Vector2.zero;
+    private Vector3 mushroomPos = Vector3.zero;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -19,15 +22,17 @@ public class JumpPad : MonoBehaviour
     }
     public void UseJumpPad()
     {
-        Debug.DrawRay(rb.position - controller.BottomY, distToJumpPad * Vector2.down, Color.red, 1000, true);
+        aimDir = playerAimScript.AimDir.normalized;
+        mushroomPos = playerAimScript.MushroomPos;
+        Debug.DrawRay(mushroomPos, distToJumpPad * aimDir, Color.red, 1000, true);
         if (CanUseJumpPad() && !controller.IsGrounded())
         {
-            rb.velocity = new(rb.velocity.x, 0);
-            rb.AddForce(new Vector2(0, jumpPadForce), ForceMode2D.Impulse);
+            rb.velocity = new(0, 0);
+            rb.AddForce(jumpPadForce * -aimDir, ForceMode2D.Impulse);
         }
     }
     bool CanUseJumpPad()
     {
-        return Physics2D.Raycast(rb.position - controller.BottomY, Vector2.down, distToJumpPad);
+        return Physics2D.Raycast(mushroomPos, aimDir, distToJumpPad);
     }
 }
