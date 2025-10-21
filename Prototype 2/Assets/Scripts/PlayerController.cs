@@ -11,9 +11,10 @@ public class PlayerController : MonoBehaviour
     private float moveX = 0f;               // force on player in x
     private Vector2 bottomY;                // adjustment used to get position of bottom of player
 
-    private string action = "shoot";
+    private string action = "jump";
     private JumpPad jumpPadScript;
     private SporeShooter sporeShooterScript;
+    private PlayerAim playerAimScript;
 
     [Header("Jump Validation Distance")]
     [SerializeField] float distToJump = 0.1f;          // max distance from platform player can jump on it
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
         bottomY = new(0, boxCollider.size.y * transform.localScale.y / 2 + 0.01f);
         jumpPadScript = GetComponent<JumpPad>();
         sporeShooterScript = GetComponent<SporeShooter>();
+        playerAimScript = GetComponent<PlayerAim>();
     }
 
     void OnMove(InputValue input)
@@ -53,6 +55,7 @@ public class PlayerController : MonoBehaviour
                 sporeShooterScript.SporeShoot();
                 break;
             case "jump":
+                Debug.Log("jump");
                 jumpPadScript.UseJumpPad();
                 break;
             default:
@@ -63,6 +66,7 @@ public class PlayerController : MonoBehaviour
 
     void OnSwitchAction(InputValue input)
     {
+        playerAimScript.FlipMushroom();
         if (action == "shoot")
         {
             action = "jump";

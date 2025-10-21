@@ -430,9 +430,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 714038459}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Environment
-  m_TagString: Environment
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -469,6 +469,7 @@ GameObject:
   - component: {fileID: 821702835}
   - component: {fileID: 821702837}
   - component: {fileID: 821702838}
+  - component: {fileID: 821702839}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -502,7 +503,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &821702832
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -693,6 +694,23 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   knockbackImpulse: 10
+--- !u!114 &821702839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821702830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19af55a099a9c3841afd3f499333bf10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpPadForce: 7
+  distToJumpPad: 0.9
+  jumpMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &1136798871
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,7 +859,7 @@ GameObject:
   - component: {fileID: 1982459040}
   - component: {fileID: 1982459039}
   - component: {fileID: 1982459041}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}

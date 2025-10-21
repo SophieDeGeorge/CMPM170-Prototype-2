@@ -29,12 +29,12 @@ public class PlayerAim : MonoBehaviour
     {
         if (mousePos.x < transform.position.x != flipped)
         {
-            Flip();
+            FlipPlayer();
         }
             
     }
 
-    void Flip()
+    void FlipPlayer()
     {
         flipped = !flipped;
 
@@ -42,6 +42,11 @@ public class PlayerAim : MonoBehaviour
         flippedScale.x *= -1;
         transform.localScale = flippedScale;
 
+        FlipMushroom();
+    }
+
+    public void FlipMushroom()
+    {
         Vector3 weaponScale = mushroomSprite.transform.localScale;
         weaponScale.x *= -1;
         mushroomSprite.transform.localScale = weaponScale;
