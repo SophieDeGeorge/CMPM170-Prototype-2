@@ -3,7 +3,7 @@ using UnityEngine;
 public class SporeShooter : MonoBehaviour
 {
     [SerializeField] private float range = 12f;
-    [SerializeField] private LayerMask hittableMask; // set to Enemy layer in Inspector
+    [SerializeField] private LayerMask hittableMask; // set to Enemy + Friend layers in Inspector
     [SerializeField] private float knockbackImpulse = 10f; // strength of push
 
     private PlayerAim playerAimScript;
@@ -24,7 +24,22 @@ public class SporeShooter : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(firePoint, dir, range, hittableMask);
         if (hit.collider != null)
         {
-            ApplyKnockback(hit,dir);
+            GameObject hitGO = hit.collider.gameObject;
+
+            // If the object hit is in the "Friend" layer, stop its animation using the triggerDeath parameter
+            if (hitGO.layer == LayerMask.NameToLayer("Friend"))
+            {
+                Animator hitAnimator = hit.collider.GetComponentInParent<Animator>();
+                if (hitAnimator != null)
+                {
+                    // Trigger the "triggerDeath" parameter in that object's Animator
+                    hitAnimator.SetTrigger("triggerDeath");
+                }
+                return;
+            }
+
+            // Apply knockback if it's not a friend
+            ApplyKnockback(hit, dir);
             playerAimScript.Animate("shoot");
         }
     }
