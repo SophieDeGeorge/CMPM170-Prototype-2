@@ -287,6 +287,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 878908607}
     m_Modifications:
+    - target: {fileID: 661946856968652506, guid: 7504403f717054f438da5c5938d0ae96, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 661946856968652506, guid: 7504403f717054f438da5c5938d0ae96, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1869127045952066651, guid: 7504403f717054f438da5c5938d0ae96, type: 3}
       propertyPath: m_LocalScale.x
       value: 31.974737
@@ -504,7 +512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distToJump: 0.1
   moveForce: 5
-  jumpForce: 5
+  jumpForce: 7
 --- !u!1 &878908606
 GameObject:
   m_ObjectHideFlags: 0
