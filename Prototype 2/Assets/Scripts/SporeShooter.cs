@@ -5,6 +5,7 @@ public class SporeShooter : MonoBehaviour
     [SerializeField] private float range = 12f;
     [SerializeField] private LayerMask hittableMask; // set to Enemy + Friend layers in Inspector
     [SerializeField] private float knockbackImpulse = 10f; // strength of push
+    [SerializeField] private ParticleSystem shootParticles; // assign in Inspector
 
     private PlayerAim playerAimScript;
 
@@ -21,6 +22,15 @@ public class SporeShooter : MonoBehaviour
         // Visualize
         Debug.DrawRay(firePoint, dir * range, Color.green, 10f);
 
+        // move and play the particle system
+        if (shootParticles != null)
+        {
+            // Move to where the mushroom shoots
+            shootParticles.transform.position = firePoint;
+
+            shootParticles.Play();  // <-- this triggers once per shot
+        }
+
         RaycastHit2D hit = Physics2D.Raycast(firePoint, dir, range, hittableMask);
         if (hit.collider != null)
         {
@@ -31,10 +41,7 @@ public class SporeShooter : MonoBehaviour
             {
                 Animator hitAnimator = hit.collider.GetComponentInParent<Animator>();
                 if (hitAnimator != null)
-                {
-                    // Trigger the "triggerDeath" parameter in that object's Animator
                     hitAnimator.SetTrigger("triggerDeath");
-                }
                 return;
             }
 
