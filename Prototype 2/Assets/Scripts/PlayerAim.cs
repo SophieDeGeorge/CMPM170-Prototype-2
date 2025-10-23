@@ -17,7 +17,7 @@ public class PlayerAim : MonoBehaviour
         aimDir = mousePos - transform.position;
         aimAngle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg;
 
-        mushroomPos = transform.position + aimDir.normalized * orbitDistance;
+        
         mushroomSprite.transform.SetPositionAndRotation(mushroomPos, Quaternion.Euler(0, 0, aimAngle+90));
         CheckFlip(mousePos);
     }
@@ -25,6 +25,10 @@ public class PlayerAim : MonoBehaviour
     public Vector2 AimDir => aimDir;
     public Vector3 MushroomPos => mushroomPos;
 
+    private void Update()
+    {
+        mushroomPos = transform.position + aimDir.normalized * orbitDistance;
+    }
     void CheckFlip(Vector3 mousePos)
     {
         if (mousePos.x < transform.position.x != flipped)
