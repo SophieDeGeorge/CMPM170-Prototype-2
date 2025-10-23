@@ -1,11 +1,18 @@
 using UnityEngine;
 
-public class SporeShooter : MonoBehaviour
+public class SporeShooterv2 : MonoBehaviour
 {
     [SerializeField] private float range = 12f;
     [SerializeField] private LayerMask hittableMask; // set to Enemy + Friend layers in Inspector
-    [SerializeField] private float knockbackImpulse = 10f; // strength of push
     [SerializeField] private ParticleSystem shootParticles; // assign in Inspector
+
+    [Header("Mask Regen Stats")]
+    [SerializeField] private InvertedMeter mushroomMeter;
+    [SerializeField] private int friendRegen = 0;
+    [SerializeField] private int environmentRegen = 0;
+
+    [Header("Graveyard")]
+    [SerializeField] private LayerMask moveTo;
 
     private PlayerAim playerAimScript;
 
@@ -21,6 +28,9 @@ public class SporeShooter : MonoBehaviour
 
         // Visualize
         Debug.DrawRay(firePoint, dir * range, Color.green, 10f);
+
+        // animate mushroom
+        playerAimScript.Animate("shoot");
 
         // move and play the particle system
         if (shootParticles != null)
@@ -38,23 +48,15 @@ public class SporeShooter : MonoBehaviour
             if (hitGO.layer == LayerMask.NameToLayer("Friend"))
             {
                 Animator hitAnimator = hit.collider.GetComponentInParent<Animator>();
-                if (hitAnimator != null)
-                    hitAnimator.SetTrigger("triggerDeath");
-                return;
+                if (hitAnimator != null) hitAnimator.enabled = false;
+                hit.collider.GetComponentInParent<SpriteRenderer>().color = Color.black;
+                mushroomMeter.Regen(friendRegen);
+            } else
+            {
+                hit.collider.GetComponentInParent<SpriteRenderer>().color = Color.grey;
+                mushroomMeter.Regen(environmentRegen);
             }
-
-            // Apply knockback if it's not a friend
-            ApplyKnockback(hit, dir);
-            playerAimScript.Animate("shoot");
+            hitGO.layer = moveTo;
         }
-    }
-
-    void ApplyKnockback(RaycastHit2D hit, Vector2 dir)
-    {
-        Rigidbody2D enemyRb = hit.rigidbody; // quicker than GetComponent<Rigidbody2D>()
-        if (enemyRb == null) return;
-
-        // Push AWAY from the PLAYER (not along the ray)
-        enemyRb.AddForce(dir * knockbackImpulse, ForceMode2D.Impulse);
     }
 }
