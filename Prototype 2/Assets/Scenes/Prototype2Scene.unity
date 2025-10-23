@@ -1309,6 +1309,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1745444157}
   m_CullTransparentMesh: 1
+--- !u!198 &1911052380 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4659063607026325829, guid: 5339e1c2591cc464e9714b82a1ec29b8, type: 3}
+  m_PrefabInstance: {fileID: 4763233761391323521}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1982459040 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1869127045952066651, guid: 7504403f717054f438da5c5938d0ae96, type: 3}
@@ -1375,6 +1380,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92b9fdc4a3d03f644bae1bf46403388b, type: 3}
+--- !u!1001 &4763233761391323521
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2555131297791323950, guid: 5339e1c2591cc464e9714b82a1ec29b8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555131297791323950, guid: 5339e1c2591cc464e9714b82a1ec29b8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555131297791323950, guid: 5339e1c2591cc464e9714b82a1ec29b8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.07659941
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555131297791323950, guid: 5339e1c2591cc464e9714b82a1ec29b8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555131297791323950, guid: 5339e1c2591cc464e9714b82a1ec29b8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555131297791323950, guid: 5339e1c2591cc464e9714b82a1ec29b8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555131297791323950, guid: 5339e1c2591cc464e9714b82a1ec29b8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555131297791323950, guid: 5339e1c2591cc464e9714b82a1ec29b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555131297791323950, guid: 5339e1c2591cc464e9714b82a1ec29b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555131297791323950, guid: 5339e1c2591cc464e9714b82a1ec29b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4150842314102670193, guid: 5339e1c2591cc464e9714b82a1ec29b8, type: 3}
+      propertyPath: m_Name
+      value: SporeCloud
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5339e1c2591cc464e9714b82a1ec29b8, type: 3}
 --- !u!1001 &4770719628164160101
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1427,6 +1489,10 @@ PrefabInstance:
       propertyPath: mushroomMeter
       value: 
       objectReference: {fileID: 1178345583}
+    - target: {fileID: 3956013299407498483, guid: 78a94e838d25f194ba180821ae2bc275, type: 3}
+      propertyPath: shootParticles
+      value: 
+      objectReference: {fileID: 1911052380}
     - target: {fileID: 4883941929082264250, guid: 78a94e838d25f194ba180821ae2bc275, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1515,3 +1581,4 @@ SceneRoots:
   - {fileID: 2167608832502476756}
   - {fileID: 666314016}
   - {fileID: 372682104}
+  - {fileID: 4763233761391323521}

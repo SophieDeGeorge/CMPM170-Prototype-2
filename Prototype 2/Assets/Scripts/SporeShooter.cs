@@ -25,10 +25,8 @@ public class SporeShooter : MonoBehaviour
         // move and play the particle system
         if (shootParticles != null)
         {
-            // Move to where the mushroom shoots
-            shootParticles.transform.position = firePoint;
-
-            shootParticles.Play();  // <-- this triggers once per shot
+            shootParticles.transform.SetPositionAndRotation(firePoint, Quaternion.LookRotation(dir));
+            shootParticles.Emit(1);
         }
 
         RaycastHit2D hit = Physics2D.Raycast(firePoint, dir, range, hittableMask);
